@@ -1,5 +1,6 @@
 #
 # Copyright (C) 2018-2019 The LineageOS Project
+# Copyright (C) 2020 Descendant
 #
 # SPDX-License-Identifier: Apache-2.0
 #
@@ -49,9 +50,9 @@ BOARD_RAMDISK_OFFSET := 0x02000000
 BOARD_ROOT_EXTRA_FOLDERS := op1 op2
 TARGET_KERNEL_ARCH := arm64
 TARGET_KERNEL_CLANG_COMPILE := true
-TARGET_KERNEL_CLANG_VERSION := latest
+TARGET_KERNEL_CLANG_VERSION := r399163
 TARGET_KERNEL_HEADER_ARCH := arm64
-TARGET_KERNEL_CONFIG := kronic_defconfig
+TARGET_KERNEL_CONFIG := descendant_defconfig
 TARGET_KERNEL_SOURCE := kernel/oneplus/sm8150
 
 # Platform
