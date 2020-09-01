@@ -23,7 +23,7 @@ if [[ ! -d "${MY_DIR}" ]]; then MY_DIR="${PWD}"; fi
 
 AOSIP_ROOT="${MY_DIR}"/../../..
 
-HELPER="${AOSIP_ROOT}/vendor/aosip/build/tools/extract_utils.sh"
+HELPER="${AOSIP_ROOT}/vendor/descendant/build/tools/extract_utils.sh"
 if [ ! -f "${HELPER}" ]; then
     echo "Unable to find helper script at ${HELPER}"
     exit 1
