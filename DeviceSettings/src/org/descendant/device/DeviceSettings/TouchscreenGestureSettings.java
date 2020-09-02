@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package com.descendant.device.DeviceSettings;
+package org.descendant.device.DeviceSettings;
 
 import android.app.ActionBar;
 import android.app.Fragment;
@@ -34,10 +34,9 @@ import androidx.preference.Preference;
 import androidx.preference.PreferenceFragment;
 import androidx.preference.PreferenceManager;
 
-import com.android.internal.descendant.hardware.LineageHardwareManager; // Need FWB support
-import com.android.internal.descendant.hardware.TouchscreenGesture; // Need FWB support
+// import org.descendant.internal.lineage.hardware.TouchscreenGesture; // Need FWB support
 
-import com.descendant.device.DeviceSettings.R;
+import org.descendant.device.DeviceSettings.R;
 
 import java.lang.System;
 
@@ -93,7 +92,6 @@ public class TouchscreenGestureSettings extends PreferenceActivity
         }
 
         private void initTouchscreenGestures() {
-            final LineageHardwareManager manager = LineageHardwareManager.getInstance(getContext());
             mTouchscreenGestures = manager.getTouchscreenGestures();
             final int[] actions = getDefaultGestureActions(getContext(), mTouchscreenGestures);
             for (final TouchscreenGesture gesture : mTouchscreenGestures) {
@@ -128,7 +126,6 @@ public class TouchscreenGestureSettings extends PreferenceActivity
             @Override
             public boolean callChangeListener(final Object newValue) {
                 final int action = Integer.parseInt(String.valueOf(newValue));
-                final LineageHardwareManager manager = LineageHardwareManager.getInstance(mContext);
                 if (!manager.setTouchscreenGestureEnabled(mGesture, action > 0)) {
                     return false;
                 }
@@ -151,7 +148,6 @@ public class TouchscreenGestureSettings extends PreferenceActivity
                 return;
             }
 
-            final LineageHardwareManager manager = LineageHardwareManager.getInstance(context);
             final TouchscreenGesture[] gestures = manager.getTouchscreenGestures();
             final int[] actionList = buildActionList(context, gestures);
             for (final TouchscreenGesture gesture : gestures) {
@@ -162,9 +158,8 @@ public class TouchscreenGestureSettings extends PreferenceActivity
         }
 
         private static boolean isTouchscreenGesturesSupported(final Context context) {
-            final LineageHardwareManager manager = LineageHardwareManager.getInstance(context);
-            return manager.isSupported(LineageHardwareManager.FEATURE_TOUCHSCREEN_GESTURES);
-        }
+        return true;
+	}
 
         private static int[] getDefaultGestureActions(final Context context,
                 final TouchscreenGesture[] gestures) {

@@ -14,7 +14,7 @@
 -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           android:sharedUserId="android.uid.system"
-          package="com.descendant.device.DeviceSettings"
+          package="org.descendant.device.DeviceSettings"
           android:versionCode="1"
           android:versionName="1.0" >
 
@@ -24,7 +24,7 @@
     <uses-permission android:name="android.permission.WRITE_SETTINGS" />
     <uses-permission android:name="android.permission.CAMERA" />
 
-    <protected-broadcast android:name="com.descendant.device.DeviceSettings.UPDATE_SETTINGS" />
+    <protected-broadcast android:name=">org.descendant.device.DeviceSettings.UPDATE_SLIDER_POSITION" />
 
     <uses-sdk
         android:minSdkVersion="28"
@@ -56,7 +56,7 @@
         <activity android:name=".KeyHandler" />
 
         <activity
-            android:name="com.descendant.device.DeviceSettings.PanelSettingsActivity"
+            android:name="org.descendant.device.DeviceSettings.PanelSettingsActivity"
             android:exported="true"
             android:label="@string/panel_category_title"
             android:launchMode="singleTask" >
@@ -66,21 +66,17 @@
             </intent-filter>
         </activity>
 
-        <activity
-            android:name=".TouchscreenGestureSettings"
-            android:label="@string/touchscreen_gesture_settings_title"
-            android:theme="@style/AppTheme">
-        </activity>
-
-        <receiver android:name="com.descendant.device.DeviceSettings.Startup" >
+        <receiver 
+            android:name="org.descendant.device.DeviceSettings.Startup" 
+            android:enabled="true">
             <intent-filter android:priority="100" >
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
         </receiver>
 
-        <!-- Quick Settings Tiles -->
+        <!-- DC-Dimming tile -->
         <service
-            android:name="com.descendant.device.DeviceSettings.DCModeTileService"
+            android:name="org.descendant.device.DeviceSettings.DCModeTileService"
             android:icon="@drawable/ic_dc_tile"
             android:label="@string/tile_dc_mode"
             android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
@@ -89,8 +85,10 @@
                     android:name="android.service.quicksettings.action.QS_TILE"/>
             </intent-filter>
         </service>
+
+        <!-- Panel mode's tile -->
         <service
-            android:name="com.descendant.device.DeviceSettings.PanelModeTileService"
+            android:name="org.descendant.device.DeviceSettings.PanelModeTileService"
             android:icon="@drawable/ic_panel_tile"
             android:label="@string/tile_panel_mode"
             android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
@@ -99,8 +97,10 @@
                     android:name="android.service.quicksettings.action.QS_TILE"/>
             </intent-filter>
         </service>
+
+        <!-- HBM tile -->
         <service
-            android:name="com.descendant.device.DeviceSettings.HBMModeTileService"
+            android:name="org.descendant.device.DeviceSettings.HBMModeTileService"
             android:icon="@drawable/ic_hbm_tile"
             android:label="@string/tile_hbm_mode"
             android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
@@ -109,8 +109,13 @@
                     android:name="android.service.quicksettings.action.QS_TILE"/>
             </intent-filter>
         </service>
+
+        <!-- Auto HBM service -->
+        <service android:name="org.descendant.device.DeviceSettings.AutoHBMService" />
+
+        <!-- Refresh rate tile -->
         <service
-            android:name="com.descendant.device.DeviceSettings.RefreshRateTileService"
+            android:name="org.descendant.device.DeviceSettings.RefreshRateTileService"
             android:icon="@drawable/ic_refresh_tile_60"
             android:label="@string/tile_refresh_rate"
             android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
@@ -120,14 +125,27 @@
             </intent-filter>
         </service>
 
-        <service android:name="com.descendant.device.DeviceSettings.FPSInfoService"
+        <!-- FPS overlay tile -->
+        <service
+            android:name=".FPSTileService"
+            android:icon="@drawable/ic_fps"
+            android:label="@string/fps_info_title"
+            android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
+            <intent-filter>
+                <action
+                    android:name="android.service.quicksettings.action.QS_TILE"/>
+            </intent-filter>
+        </service>
+
+        <!-- FPS info service -->
+        <service android:name="org.descendant.device.DeviceSettings.FPSInfoService"
                 android:exported="false">
         </service>
 
         <!-- Search indexing -->
         <provider
             android:name=".ConfigPanelSearchIndexablesProvider"
-            android:authorities="com.descendant.device"
+            android:authorities="org.descendant.device"
             android:multiprocess="false"
             android:grantUriPermissions="true"
             android:permission="android.permission.READ_SEARCH_INDEXABLES"

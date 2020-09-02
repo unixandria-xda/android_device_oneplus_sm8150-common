@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package com.descendant.device.DeviceSettings;
+package org.descendant.device.DeviceSettings;
 
 import android.Manifest;
 import android.app.NotificationManager;
@@ -44,7 +44,7 @@ import android.view.KeyEvent;
 import com.android.internal.os.DeviceKeyHandler;
 import com.android.internal.util.ArrayUtils;
 
-import com.descendant.device.DeviceSettings.Constants;
+import org.descendant.device.DeviceSettings.Constants;
 
 public class KeyHandler implements DeviceKeyHandler {
 

@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package com.descendant.device.DeviceSettings;
+package org.descendant.device.DeviceSettings;
 
 import android.content.ActivityNotFoundException;
 import android.content.BroadcastReceiver;
@@ -57,7 +57,7 @@ public class TouchKeyHandler implements DeviceKeyHandler {
     private static final String TAG = TouchKeyHandler.class.getSimpleName();
 
     private static final String GESTURE_WAKEUP_REASON = "touchscreen-gesture-wakeup";
-    private static final String PULSE_ACTION = "com.android.systemui.doze.pulse";
+    private static final String PULSE_ACTION = "org.descendant.systemui.doze.pulse";
     private static final int GESTURE_REQUEST = 0;
     private static final int GESTURE_WAKELOCK_DURATION = 3000;
     private static final int EVENT_PROCESS_WAKELOCK_DURATION = 500;

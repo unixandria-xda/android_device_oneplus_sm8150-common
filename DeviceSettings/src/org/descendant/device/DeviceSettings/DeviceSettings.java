@@ -15,7 +15,7 @@
 * along with this program. If not, see <http://www.gnu.org/licenses/>.
 *
 */
-package com.descendant.device.DeviceSettings;
+package org.descendant.device.DeviceSettings;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -43,8 +43,8 @@ import androidx.preference.PreferenceGroup;
 import androidx.preference.PreferenceScreen;
 import androidx.preference.TwoStatePreference;
 
-import com.android.internal.util.descendant.FileUtils;
-import com.descendant.device.DeviceSettings.Constants;
+// import org.descendant.internal.util.lineage.FileUtils;
+import org.descendant.device.DeviceSettings.Constants;
 
 public class DeviceSettings extends PreferenceFragment
         implements Preference.OnPreferenceChangeListener {
@@ -140,7 +140,7 @@ public class DeviceSettings extends PreferenceFragment
     public boolean onPreferenceChange(Preference preference, Object newValue) {
         if (preference == mFpsInfo) {
             boolean enabled = (Boolean) newValue;
-            Intent fpsinfo = new Intent(this.getContext(), com.descendant.device.DeviceSettings.FPSInfoService.class);
+            Intent fpsinfo = new Intent(this.getContext(), org.descendant.device.DeviceSettings.FPSInfoService.class);
             if (enabled) {
                 this.getContext().startService(fpsinfo);
             } else {

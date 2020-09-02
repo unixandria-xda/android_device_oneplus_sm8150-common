@@ -1,3 +1,3 @@
--keep class com.descendant.device.DeviceSettings.* {
+-keep class org.descendant.device.DeviceSettings.* {
   *;
 }
