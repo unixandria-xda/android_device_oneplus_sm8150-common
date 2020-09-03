@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package org.descendant.settings.doze;
+package org.lineageos.settings.doze;
 
 import android.content.Context;
 import android.content.Intent;
@@ -35,7 +35,7 @@ public final class Utils {
     private static final String TAG = "DozeUtils";
     private static final boolean DEBUG = false;
 
-    private static final String DOZE_INTENT = "org.descendant.systemui.doze.pulse";
+    private static final String DOZE_INTENT = "com.android.systemui.doze.pulse";
 
     protected static final String ALWAYS_ON_DISPLAY = "always_on_display";
 

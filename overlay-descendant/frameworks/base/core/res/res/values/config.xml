@@ -31,9 +31,9 @@
 
     <!-- Names of the key handler classes -->
     <string-array name="config_deviceKeyHandlerClasses" translatable="false">
-        <item>com.descendant.device.DeviceSettings.KeyHandler</item>
-        <item>com.descendant.device.DeviceSettings.TouchKeyHandler</item>
-        <item>org.descendant.camerahelper.KeyHandler</item>
+        <item>org.aosp.device.DeviceSettings.KeyHandler</item>
+        <item>org.aosp.device.DeviceSettings.TouchKeyHandler</item>
+        <item>org.lineageos.camerahelper.KeyHandler</item>
     </string-array>
 
     <!-- Hardware keys present on the device, stored as a bit field.
